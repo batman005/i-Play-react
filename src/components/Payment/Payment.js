@@ -8,26 +8,25 @@ export const Payment = () => {
   const dispatch = useDispatch();
   const token = JSON.stringify(state.state.data.access_token);
   const [amount, setAmount] = useState('');
-
   const data={amount:amount};
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("Handle Submit Called");
+   // console.log("Handle Submit Called");
     if(data.amount===""){
-      console.log("if handle submit called");
+     // console.log("if handle submit called");
       alert(`Please fill the amount`);
     }
     else{
-      console.log("else handle submit called");
+      //console.log("else handle submit called");
       submit();
     }
   }
   const submit = () => {
-    console.log("payment :",state.state.payment);
-    console.log(data);
+    //console.log("payment :",state.state.payment);
+    //console.log(data);
     dispatch(payment(token,data)).then((res) => {
       console.log(res);
-      console.log("payment :",state.state.payment);
+      //console.log("payment :",state.state.payment);
     }).catch((err) => {
       console.log(err);
     })

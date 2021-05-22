@@ -6,6 +6,8 @@ const initialState = {
     wallet:{},
     resetUser:{},
     resetPass:{},
+    games:{},
+    matches:{},
     load:true,
     token : ''
 }
@@ -14,7 +16,7 @@ const initialState = {
 const state = (initState = initialState,action) => {
     switch(action.type){
         case "LOGIN":{
-            return{...initState,data:action.payload,load:false,token : action.payload.access_token}
+            return{...initState,data:action.payload,load:false,token:action.payload.access_token}
         }
         case "REGISTER":{
             return{...initState,regis:action.payload,load:false}
@@ -33,6 +35,15 @@ const state = (initState = initialState,action) => {
         }
         case "WALLET":{
             return{...initState,wallet:action.payload,load:false}
+        }
+        case "GAMES":{
+            return{...initState,games:action.payload,load:false}
+        }
+        case "LIVE":{
+            return{...initState,live:action.payload,load:false}
+        }
+        case "COMPLETE":{
+            return{...initState,matches:action.payload,load:false}
         }
         case "PAYMENT":{
             return{...initState,payment:action.payload,load:false}

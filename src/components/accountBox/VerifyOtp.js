@@ -18,19 +18,19 @@ export function VerifyOtp() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("Handle Submit Called");
+    //console.log("Handle Submit Called");
     if(data.otp===""){
-      console.log("if handle submit called");
+      //console.log("if handle submit called");
       setReloading(false);
     }
     else{
-      console.log("else handle submit called");
+     // console.log("else handle submit called");
       submit();
     }
   }
 
   const submit = () => {
-    console.log("data from submit : ",data);
+   // console.log("data from submit : ",data);
     dispatch(otp(data)).then((res) => {
       console.log(res);
       if(res===true){

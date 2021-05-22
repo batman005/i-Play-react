@@ -26,7 +26,7 @@ export default makeStyles((theme)=>({
     },
     textbox:{
         position: "absolute",
-        bottom:"0%",
+        bottom:"1%",
         left: "0.59%",
         backgroundColor:'transparent',
         opacity:"0.8",

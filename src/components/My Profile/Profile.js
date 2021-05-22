@@ -60,7 +60,7 @@ export const Profile = () => {
     console.log(data1);
     dispatch(user(token,data1)).then((res) => {
       console.log(res);
-      console.log("resetUser :",);
+      console.log("resetUser :",res);
     }).catch((err) => {
       console.log(err);
     })
@@ -71,11 +71,9 @@ export const Profile = () => {
     e.preventDefault()
     console.log("Handle Submit Called");
     if(data.old_password===""||data.new_password===""||data.password_confirmation===""){
-      console.log("if handle submit called");
-      alert(`Please fill passwords`);
+        submit1(false);
     }
     else{
-      console.log("else handle submit called");
       submit1();
     }
   }

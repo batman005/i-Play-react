@@ -24,7 +24,7 @@ export default makeStyles((theme)=>({
     },
     img:{
         height:"250px",
-        width:"80%",
+        width:"90%",
         borderRadius:"1%",
     },
     textbox:{
@@ -41,5 +41,14 @@ export default makeStyles((theme)=>({
         width:'200px',
     },
     head:{
-    }
+        marginLeft:'1vh',
+    },
+    date:{
+        marginLeft:'1vh',
+        color:'green',
+    },
+    news:{
+       marginLeft:'1vh',
+    },
+
 }))

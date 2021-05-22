@@ -1,12 +1,37 @@
-import React, { useState } from 'react'
+import React,{useState} from 'react'
 import '../../styles/Home.css';
+import {useDispatch,useSelector} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import BottomSheet from '../Home/BottomSheet';
+import {games} from '../../actions/actions'
 export const Home = () => {
-  const [state] = useState(JSON.parse(localStorage.getItem("data")));
-
-    
-    // setState({user : {full_name:'ABC'}});
+  const dispatch = useDispatch();
+  const state = useSelector(state => state.state);
+  const token = JSON.stringify(state.data.access_token);
+  const [loading, setLoading] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("Handle Submit Called");
+      submit();
+  }
+  const submit = () => {
+    dispatch(games(token)).then((res) => {
+      if(res===true){
+        setLoading(true);
+      }
+      else{
+        setLoading(false);
+      }
+    }).catch((err) => {
+      setLoading(false);
+    })
+    //console.log(state);
+  }
+  if(loading===true ){
+    return <Redirect to="/Home/Games" />
+    } 
+  
+    else {
   return (
     state!== null  ? (
     <div>
@@ -32,12 +57,11 @@ export const Home = () => {
         <button id="Swipe"className="btn-2 btn-block  btn-refer" ><BottomSheet/>
         </button>
         <div>
-        <Link to="/Home/Games" style={{ textDecoration: 'none' }}>
-        <button className="btn btn-block  btn-large">Start Playing Games</button>
-        </Link>
+        <button className="btn btn-block  btn-large" onClick={handleSubmit}>Start Playing Games</button>
         </div>
       </div>
       </div>
     </div> ) : <Redirect to = "/"/>
   );
+}
 }

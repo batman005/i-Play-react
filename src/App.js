@@ -15,6 +15,8 @@ import PayIMG from './pages/Hero/Payment';
 import Register1 from './pages/Login/Register';
 import Otp from './pages/Login/Otp';
 import Account from './pages/Login/Account';
+import CompIDIMG from './pages/Games/CompleteID';
+import LiveIDIMG from './pages/Games/LiveID';
 function App() {
   const history = createBrowserHistory();
   return (
@@ -27,7 +29,9 @@ function App() {
           <Route exact path="/MakeAccount">{Account}</Route>
           <Route exact path="/Home">{HomeIMG}</Route>
           <Route exact path="/Home/Games">{GamesIMG}</Route>
-          <Route exact path="/Home/Games/GamesID">{GamesIDIMG}</Route>
+          <Route exact path="/Home/Games/:uuid">{GamesIDIMG}</Route>
+          <Route exact path="/Home/Games/Complete/:uuid">{CompIDIMG}</Route>
+          <Route exact path="/Home/Games/Live/:uuid">{LiveIDIMG}</Route>
           <Route exact path="/News">{NewsIMG}</Route>
           <Route exact path="/News/post/:id">{PostIMG}</Route>
           <Route exact path="/Zone">{ZoneIMG}</Route>

@@ -16,22 +16,22 @@ export function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("Handle Submit Called");
+    //console.log("Handle Submit Called");
     if(data.mobile_number===""){
-      console.log("if handle submit called");
+      //console.log("if handle submit called");
       setReloading(false);
       history.push("/Register");
       setError('Failed to register');
     }
     else{
-      console.log("else handle submit called");
+      //console.log("else handle submit called");
       submit();
       setError(false);
     }
   }
 
   const submit = () => {
-    console.log("data from submit : ",data);
+    //console.log("data from submit : ",data);
     dispatch(register(data)).then((res) => {
       console.log(res);
       if(res===true){

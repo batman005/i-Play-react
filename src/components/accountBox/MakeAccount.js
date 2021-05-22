@@ -21,22 +21,16 @@ export function MakeAccount  ()  {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("Handle Submit Called");
     if(data.mobile_number===""||data.password===""){
-      console.log("if handle submit called");
-      alert(`Please enter the login details`);
       setReloading(false);
     }
     else{
-      console.log("else handle submit called");
       submit();
     }
   }
 
   const submit = () => {
-    console.log("data from submit : ",data);
     dispatch(acp(data)).then((res) => {
-      console.log(res);
       if(res===true){
         setResponse(true);
         setReloading(true);
@@ -47,7 +41,6 @@ export function MakeAccount  ()  {
         setReloading(false);
       }
     }).catch((err) => {
-      console.log(err.message);
       setReloading(false);
     })
     //console.log(state);

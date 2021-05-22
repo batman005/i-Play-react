@@ -16,7 +16,6 @@ export const Navbar = () => {
     const classes = useStyles();
     const state = useSelector(state => state.state);
     const token = JSON.stringify(state.data.access_token);
-    console.log("access token ", token);
     const getWallet = () => {
       dispatch(wallet(token));
     }

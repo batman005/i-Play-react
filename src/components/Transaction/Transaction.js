@@ -9,7 +9,6 @@ export const Transaction = () => {
     const classes = useStyles();
     const trans = useSelector(state=>state);
     const wallet = trans.state.wallet.transactions; 
-    console.log(wallet);
     const [uuid,setUid] = useState(null);
     const goTorns= () => {
         console.log("trans id is : ",uuid);

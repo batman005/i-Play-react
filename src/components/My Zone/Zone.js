@@ -9,7 +9,6 @@ export const Zone = () => {
   const state = useSelector((state) => state);
   const name = state.state.data.user.full_name;
   const credits = state.state.data.user.credits;
-  console.log("Name : ", name);
   return (
     <>
     <div>

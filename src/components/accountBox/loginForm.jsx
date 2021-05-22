@@ -20,24 +20,19 @@ export function LoginForm() {
   const history = useHistory()
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("Handle Submit Called");
     if(data.mobile_number===""||data.password===""){
-      console.log("if handle submit called");
       setReloading(false);
       history.push("/")
       setError('Failed to log in');
     }
     else{
-      console.log("else handle submit called");
       submit();
       setError(false);
     }
   }
 
   const submit = () => {
-    console.log("data from submit : ",data);
     dispatch(login(data)).then((res) => {
-      console.log(res);
       if(res===true){
         setResponse(true);
         setSuccess('Success');
@@ -50,7 +45,6 @@ export function LoginForm() {
         setSuccess(false);
       }
     }).catch((err) => {
-      console.log(err.message);
       setReloading(false);
       setSuccess(false);
     })

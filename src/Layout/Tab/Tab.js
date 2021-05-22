@@ -14,7 +14,7 @@ export const Tab = () => {
         submit();
     }
     const submit = () => {
-    console.log(token);
+   // console.log(token);
     dispatch(wallet(token)).then((res) => {
       console.log(res);
     }).catch((err) => {

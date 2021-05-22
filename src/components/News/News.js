@@ -9,7 +9,6 @@ export const News = () => {
     const classes = useStyles();
     const allnews = useSelector(state=>state);
     const news = allnews.state.news.announcements; 
-    console.log("accessToken",allnews);
     const [id,setId] = useState(null);
     const goToews = () => {
         console.log("news id is : ",id);
