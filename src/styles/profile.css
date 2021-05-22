@@ -1,0 +1,63 @@
+#Profile .section-center {
+  background: #111;
+  border-radius: 0.2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s linear;
+  padding: 2rem;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+#Profile .section {
+  padding: 5rem 0;
+}
+
+#Profile .section-center:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* form */
+#Profile .form-control {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+#Profile .form-control label {
+  color: rgb(0, 170, 0);
+  position: relative;
+}
+
+#Profile .form-item {
+  padding: 0.3rem;
+  background: hsl(0, 0%, 11%);
+  border-radius: 0.5rem;
+  border-color: rgb(50, 255, 50);
+  font-size: 1rem;
+  flex: 1 0 auto;
+  color: hsl(0, 0%, 87%);
+}
+
+/* save button */
+#Profile .btn {
+  padding: 1rem;
+  background: hsl(115, 100%, 39%);
+  border-radius: 0.5rem;
+  border-color: rgb(50, 255, 50);
+  font-size: 1.2rem;
+  flex: 1 0 auto;
+  height: 63px;
+  width: 100%;
+  color: hsl(0, 0%, 87%);
+}
+#Profile .size-md {
+  margin-left: 11vw;
+  width: 75%;
+}
+
+#Profile h1 {
+  color: rgb(236, 255, 236);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}

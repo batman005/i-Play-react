@@ -1,0 +1,23 @@
+#Transaction .intro {
+    display: table;
+    height: 100vh;
+    width: 100%;
+    padding-top :30x;
+    background: url(https://app.alvoraplay.com/assets/subgraphic-desktop-footer-left.png) center center no-repeat black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+  #Transaction .has-background-color-collection .collection.with-header-theme .collection-header, .wallet__container {
+    background-image: url(https://app.alvoraplay.com/assets/subgraphic-desktop-footer-left.png);
+    background-size: cover;
+    background-position: 50%;
+}
+
+
+#Transaction .has-background-color-collection .collection.with-header-theme .collection-header {
+  background-color: #14a31a;
+  color: #fff;
+}
