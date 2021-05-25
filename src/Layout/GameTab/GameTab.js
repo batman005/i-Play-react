@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import {useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
-import {complete} from '../../actions/actions';
+import {complete, upcoming} from '../../actions/actions';
 import {live} from '../../actions/actions';
 export const GameTab = () => {
   const dispatch = useDispatch();
@@ -19,6 +19,9 @@ export const GameTab = () => {
     }
     const getComplete = () => {
       dispatch(complete(token,uuid));
+    }
+    const getComing = () => {
+      dispatch(upcoming(token,uuid));
     }
     return (
         <div>
@@ -36,7 +39,7 @@ export const GameTab = () => {
                       {/* UPCOMING */}
                     <Grid  item sm={4} className={classes.gridItem}>
                     <Link to={`/Home/Games/${uuid}`}>
-                        <Button className={classes.button}>
+                        <Button className={classes.button} onClick={getComing}>
                       UPCOMING
                         </Button>
                       </Link>

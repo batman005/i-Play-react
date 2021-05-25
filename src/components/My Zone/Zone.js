@@ -6,9 +6,9 @@ import Score from "./Score";
 import logo from "../../assets/alvora-icon-logo.png";
 import 'materialize-css/dist/css/materialize.min.css';
 export const Zone = () => {
-  const state = useSelector((state) => state);
-  const name = state.state.data.user.full_name;
-  const credits = state.state.data.user.credits;
+  const trans = useSelector(state=>state);
+  const name = trans.state.wallet.user.full_name; 
+  const credits = trans.state.wallet.user.credits; 
   return (
     <>
     <div>

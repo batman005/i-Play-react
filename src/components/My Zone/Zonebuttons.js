@@ -11,6 +11,10 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link } from "react-router-dom";
 import 'materialize-css/dist/css/materialize.min.css'
 export default function Zonebuttons() {
+
+  const handleSubmit = (e) => {
+    localStorage.clear();
+  }
   return (
     <div id="Zonebuttons">
       <div className="container">
@@ -82,7 +86,7 @@ export default function Zonebuttons() {
                 </span>
               </li>
               <hr />
-              <Link to="/"  style={{ textDecoration: 'none' }}>
+              <Link to="/"  style={{ textDecoration: 'none' }} onClick={handleSubmit}>
                 <li>
                   <i className="icon">
                     <ExitToAppIcon />

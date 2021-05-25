@@ -8,6 +8,7 @@ const initialState = {
     resetPass:{},
     games:{},
     matches:{},
+    coming:{},
     load:true,
     token : ''
 }
@@ -44,6 +45,9 @@ const state = (initState = initialState,action) => {
         }
         case "COMPLETE":{
             return{...initState,matches:action.payload,load:false}
+        }
+        case "UPCOMING":{
+            return{...initState,coming:action.payload,load:false}
         }
         case "PAYMENT":{
             return{...initState,payment:action.payload,load:false}

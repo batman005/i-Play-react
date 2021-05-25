@@ -9,6 +9,7 @@ export const walletUrl = 'https://corporateworld.tech/iplay/api/v1/user/wallet';
 export const paymentUrl = 'https://corporateworld.tech/iplay/api/v1/user/startPayment';
 export const gamesUrl='https://corporateworld.tech/iplay/api/v1/user/games';
 export const LiveUrl='https://corporateworld.tech/iplay/api/v1/user/liveMatchesForGame';
+export const upUrl='https://corporateworld.tech/iplay/api/v1/user/upcomingMatchesForGame';
 export const CompUrl='https://corporateworld.tech/iplay/api/v1/user/completedMatchesForGame';
 //export const logIn = (data) => {
   //  axios.post(url, {

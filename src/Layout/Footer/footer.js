@@ -48,11 +48,11 @@ export const Navbar = () => {
             <Toolbar>
                 <Grid container spacing={2} className={classes.grid}>
                     {/* News Button */}
-                    <Grid item xs={4} className={classes.grid}>
-                    <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+                    <Grid item xs={4} className={classes.grid}  onClick={getNews}>
+                    <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}} >
                         <Button className={classes.button}
                         component={Link} to='/News'>
-                         <NotificationsActiveIcon style={{color:'white'}} onClick={getNews} />
+                         <NotificationsActiveIcon style={{color:'white'}}  />
                         </Button>
                         News
                         </div>
@@ -68,7 +68,7 @@ export const Navbar = () => {
                         </div>
                     </Grid>
                     {/* My Profile */}
-                    <Grid item xs={4} className={classes.grid}>
+                    <Grid item xs={4} className={classes.grid} onClick={getWallet}>
                     <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}} >
                         <Button className={buttonClassname} disabled={loading}
                            onClick={handleButtonClick}
@@ -77,7 +77,7 @@ export const Navbar = () => {
                            <CircularProgress color="inherit" />
                                </Backdrop>
     
-                            <AccountCircleIcon style={{color:'white'}} onClick={getWallet}/>
+                            <AccountCircleIcon style={{color:'white'}} />
             
                         </Button>
                         Zone

@@ -11,6 +11,7 @@ import { paymentUrl }from '../api/api';
 import {gamesUrl }from '../api/api';
 import {CompUrl }from '../api/api';
 import {LiveUrl }from '../api/api';
+import {upUrl }from '../api/api';
 /* login */
 export const login = data =>  dispatch => {
     return axios.post(loginUrl,data).then((res) => {
@@ -124,7 +125,8 @@ export const user = (token,data1) =>  dispatch => {
     return axios.post(userUrl,data1,{headers:{'X-ACCESS-TOKEN':token}}).then((res) => {
       //  console.log(res.data1);
         dispatch({type:"USER",payload :res.data1});
-        dispatch({type:"LOGIN",payload : res.data});
+        localStorage.clear();
+        dispatch({type:"WALLET",payload : res.data});
         //dispatch({type:"LOAD"});
         return true;
     }).catch((err) => {
@@ -195,6 +197,24 @@ export const complete = (token,uuid) =>  dispatch => {
     const headers = {'X-ACCESS-TOKEN':token}
     return axios.post(CompUrl ,{uuid},{headers:headers}).then((res) => {
         dispatch({type:"COMPLETE",payload :res.data});
+        localStorage.setItem("token",res.data.access_token);
+        localStorage.setItem("data",JSON.stringify(res.data.user));
+        //dispatch({type:"LOAD"});
+        return true;
+    }).catch((err) => {
+        //console.log(err.message);
+        return false;
+    })
+    //dispatch({type:"LOGIN",payload : data});
+    
+    //api.logIn(JSON.parse(JSON.stringify(data)));
+    //console.log(state);
+}
+export const upcoming = (token,uuid) =>  dispatch => {
+    const headers = {'X-ACCESS-TOKEN':token}
+    return axios.post(upUrl ,{uuid},{headers:headers}).then((res) => {
+        dispatch({type:"UPCOMING",payload :res.data});
+        console.log(res.data);
         localStorage.setItem("token",res.data.access_token);
         localStorage.setItem("data",JSON.stringify(res.data.user));
         //dispatch({type:"LOAD"});

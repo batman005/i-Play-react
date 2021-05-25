@@ -2,6 +2,7 @@ import './App.css';
 import Login from './pages/Login/Login';
 import { Router, Route, Switch} from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import 'react-toastify/dist/ReactToastify.css';
 import HomeIMG from './pages/Hero/Hero';
 import GamesIMG from './pages/Games/Games';
 import NewsIMG from './pages/News/News';
@@ -17,6 +18,7 @@ import Otp from './pages/Login/Otp';
 import Account from './pages/Login/Account';
 import CompIDIMG from './pages/Games/CompleteID';
 import LiveIDIMG from './pages/Games/LiveID';
+import matchIMG from './pages/Games/matchID';
 function App() {
   const history = createBrowserHistory();
   return (
@@ -30,6 +32,7 @@ function App() {
           <Route exact path="/Home">{HomeIMG}</Route>
           <Route exact path="/Home/Games">{GamesIMG}</Route>
           <Route exact path="/Home/Games/:uuid">{GamesIDIMG}</Route>
+          <Route exact path="/Home/Games/:uuid/Gameds">{matchIMG}</Route>
           <Route exact path="/Home/Games/Complete/:uuid">{CompIDIMG}</Route>
           <Route exact path="/Home/Games/Live/:uuid">{LiveIDIMG}</Route>
           <Route exact path="/News">{NewsIMG}</Route>

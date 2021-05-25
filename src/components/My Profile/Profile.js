@@ -3,34 +3,17 @@ import { useSelector } from "react-redux";
 import "../../styles/profile.css";
 import {pass} from '../../actions/actions'
 import {user} from '../../actions/actions'
+import {wallet} from '../../actions/actions'
+import {games} from '../../actions/actions'
 import {useDispatch} from 'react-redux';
-import {createMuiTheme,makeStyles,ThemeProvider} from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import { green} from '@material-ui/core/colors';
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
-  },
-  input: {
-    display: 'none',
-    paddingLeft:'5rem',
-  },
-}));
-const theme = createMuiTheme({
-  palette: {
-    primary: green,
-  },
-});
+import { ToastContainer ,toast } from 'react-toastify';
 export const Profile = () => {
   const state = useSelector((state) => state);
-  const name = state.state.data.user.full_name;
-  const number = state.state.data.user.mobile_number;
-  const email = state.state.data.user.email;
+  const trans = useSelector(state=>state);
+  const name = trans.state.wallet.user.full_name; 
+  const email = trans.state.wallet.user.email; 
+  const number = trans.state.wallet.user.mobile_number; 
   const token = JSON.stringify(state.state.data.access_token);
-  // console.log('access',token);
-  const classes = useStyles();
   const dispatch = useDispatch();
   const [fullname, setFullname] = useState('');
   const [emailid,setEmailid] = useState('');
@@ -38,20 +21,18 @@ export const Profile = () => {
   const [oldpassword, setOldpass] = useState('');
   const [newpassword, setNewpass] = useState('');
   const [confirmpassword, setConpass] = useState('');
+  const [profileImage, setImage] = useState('');
 
-  const data1 ={full_name:fullname,email:emailid,mobile_number: mobileno}
+  const data1 = {profile_image:profileImage,full_name:fullname,email:emailid,mobile_number: mobileno}
   const data = {new_password : newpassword ,old_password: oldpassword, password_confirmation:confirmpassword};
 
-  
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("Handle Submit Called");
     if(data1.full_name===""){
-      console.log("if handle submit called");
-      alert(`Please fill changes that you want`);
+      submit(false);
     }
     else{
-      console.log("else handle submit called");
       submit();
     }
   }
@@ -59,10 +40,17 @@ export const Profile = () => {
     console.log("resetUser :",state.state.resetUser);
     console.log(data1);
     dispatch(user(token,data1)).then((res) => {
-      console.log(res);
-      console.log("resetUser :",res);
+      if(res===true){
+        toast.success('Success');
+        dispatch(wallet(token));
+        dispatch(games(token));
+      }
+      else{
+        toast.error('name not changed');
+      }
     }).catch((err) => {
       console.log(err);
+      toast.error('name not changed');
     })
     //console.log(state);
   }
@@ -81,8 +69,12 @@ export const Profile = () => {
     console.log("resetPass :",state.state.resetPass);
     console.log(data);
     dispatch(pass(token,data)).then((res) => {
-      console.log(res);
-      console.log("resetPass :",state.state.resetPass);
+      if(res===true){
+        toast.success('Password changed');
+      }
+      else{
+        toast.error('password not changed');
+      }
     }).catch((err) => {
       console.log(err);
     })
@@ -92,21 +84,33 @@ export const Profile = () => {
     <div>
       <div id="Profile">
     <section className="section-center">
+      <ToastContainer/>
       <form>
-      <input
-        accept="image/*"
-        className={classes.input}
-        id="contained-button-file"
-        multiple
-        type="file"
-      />
-      <label htmlFor="contained-button-file">
-      <ThemeProvider theme={theme}>
-        <Button variant="contained"  component="span" className={classes.button} color="primary">
-          Upload
-        </Button>
-        </ThemeProvider>
-      </label>
+      <div className="col s12 center mt-2">
+        <img
+          className="image"
+          width="80"
+         id="profileImage"
+         src= ''
+         alt='/'
+                   />
+                  </div>
+                  <div id='file' className="file-field input-field col s6 center">
+                    <div className="btn col s6 green center profile-btn waves-effect waves-light">
+                      <span className="center">File</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e)=>setImage(e.target.value)}
+                      />
+                    </div>
+                    <div className="file-path-wrapper">
+                      <input
+                        className="file-path validate d-none"
+                        type="text"
+                      />
+                    </div>
+                  </div>
         <div className="form-control">
           <label>Full Name</label>
           <input
@@ -169,3 +173,4 @@ export const Profile = () => {
     </div>
   );
 };
+

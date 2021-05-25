@@ -61,3 +61,16 @@
   margin-bottom: 1.5rem;
   text-align: left;
 }
+
+/* save button */
+#file .btn  .profile-btn .file-field {
+  padding: 1rem;
+  background: hsl(115, 100%, 39%);
+  border-radius: 0.5rem;
+  border-color: rgb(50, 255, 50);
+  font-size: 1.2rem;
+  flex: 1 0 auto;
+  height: 63px;
+  width: 40%;
+  color: hsl(0, 0%, 87%);
+}
